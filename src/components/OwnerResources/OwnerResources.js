@@ -8,4 +8,4 @@ function OwnerResources() {
   )
 }
 
-export default OwnerResources
+export default OwnerResources;

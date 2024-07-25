@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+import './Footer.css';
 
 function Footer() {
   return (
-    <div>
-      
-    </div>
+    <footer className='footer'>
+      <p>&copy; 2024 Dog Info Hub</p>
+    </footer>
   )
 }
 
-export default Footer
+export default Footer;
