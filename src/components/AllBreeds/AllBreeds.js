@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import fetchAllBreeds from '../../ApiCalls/apiCalls';
 
 function AllBreeds() {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  useEffect(() => {
+    fetchAllBreeds().then(data => {
+      console.log('Fetched Breeds:', data);
+    });
+  }, []);
+};
 
 export default AllBreeds;
