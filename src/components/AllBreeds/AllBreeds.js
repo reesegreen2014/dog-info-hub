@@ -8,4 +8,4 @@ function AllBreeds() {
   )
 }
 
-export default AllBreeds
+export default AllBreeds;

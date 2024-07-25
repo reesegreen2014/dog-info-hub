@@ -1,0 +1,65 @@
+.home-page {
+    text-align: center;
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+  }
+  
+  .home-page-header {
+    font-size: 48px;
+    color: #556b8e;
+    position: relative;
+    animation: glisten 2s infinite;
+    background: linear-gradient(90deg, #556b8e, #b6a1ff, #556b8e);
+    background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+  }
+  
+  @keyframes glisten {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .info-box {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    width: 50%;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background-color: #556b8e;
+    width: 50%;
+    padding: 3em;
+    border-radius: 10px;
+  }
+  
+  .home-button {
+    background-color: #d0c2ff;
+    color: #556b8e;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .home-button:hover {
+    background-color: #b6a1ff;
+  }
+  
