@@ -21,6 +21,7 @@
     color: transparent;
     background-size: 200% 200%;
     margin: 10px 0;
+    margin-bottom: 1em;
   }
   
   @keyframes glisten {
