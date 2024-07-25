@@ -1,38 +1,110 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #556b8e;
+  color: white;
+  position: relative;
+  z-index: 1000; 
+}
+
+.logo {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.logo-link {
+  color: white;
+  text-decoration: none;
+}
+
+.logo-link:hover {
+  text-decoration: underline;
+}
+
+.nav {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-button {
+  background-color: white;
+  color: #556b8e;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-button:hover {
+  background-color: #e1e1e1;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 2em;
+  cursor: pointer;
+  z-index: 1001; 
+}
+
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(85, 107, 142, 0.95); 
     padding: 20px;
-    background-color: #556b8e;
-    color: white;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001; 
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
   }
-  
-  .logo {
-    font-size: 2em;
-    font-weight: bold;
+
+  .nav.open {
+    display: flex;
+    animation: fadeIn 0.5s forwards;
   }
-  
-  .logo-link {
-    color: white;
-    text-decoration: none;
+
+  .nav.close {
+    animation: fadeOut 0.5s forwards;
   }
-  
-  .logo-link:hover {
-    text-decoration: underline;
-  }
-  
+
   .nav-button {
-    background-color: white;
-    color: #556b8e;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    text-decoration: none;
-    margin-left: 10px;
-    font-weight: bold;
+    margin: 10px 0;
+    width: 80%;
+    text-align: center;
   }
-  
-  .nav-button:hover {
-    background-color: #e1e1e1;
+
+  .menu-icon {
+    display: block;
   }
-  
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+}
