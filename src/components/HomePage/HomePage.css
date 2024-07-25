@@ -1,0 +1,113 @@
+.home-page {
+    text-align: center;
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    position: relative;
+    box-sizing: border-box;
+  }
+  
+  .home-page-header {
+    font-size: 48px;
+    color: #556b8e;
+    position: relative;
+    animation: glisten 2s infinite;
+    background: linear-gradient(90deg, #556b8e, #b6a1ff, #556b8e);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    margin: 10px 0;
+    margin-bottom: 1em;
+  }
+  
+  @keyframes glisten {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .info-box {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    width: 80%;
+    max-width: 600px;
+    box-sizing: border-box;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background-color: #556b8e;
+    width: 80%;
+    max-width: 600px;
+    padding: 2em;
+    border-radius: 10px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+  }
+  
+  .home-button {
+    background-color: #d0c2ff;
+    color: #556b8e;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    flex: 1 1 auto;
+    margin: 5px;
+    box-sizing: border-box;
+  }
+  
+  .home-button:hover {
+    animation: glisten 2s infinite;
+    background: linear-gradient(90deg, #cccfd3, #b6a1ff, #d1d1d1);
+  }
+  
+  @media (max-width: 768px) {
+    .home-page-header {
+      font-size: 36px;
+    }
+  
+    .info-box, .button-container {
+      width: 90%;
+    }
+  
+    .home-button {
+      padding: 10px 20px;
+    }
+  
+    .polaroid img {
+      width: 120px;
+      height: 120px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .home-page-header {
+      font-size: 28px;
+    }
+  
+    .home-button {
+      padding: 8px 16px;
+    }
+  
+    .polaroid img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+  

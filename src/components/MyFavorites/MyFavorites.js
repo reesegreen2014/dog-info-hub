@@ -8,4 +8,4 @@ function MyFavorites() {
   )
 }
 
-export default MyFavorites
+export default MyFavorites;

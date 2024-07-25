@@ -8,4 +8,4 @@ function BreedDetails() {
   )
 }
 
-export default BreedDetails
+export default BreedDetails;
