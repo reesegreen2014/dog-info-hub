@@ -1,0 +1,52 @@
+.
+├── README.md
+├── package-lock.json
+├── package.json
+├── projectStructure.txt
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── logo192.png
+│   ├── logo512.png
+│   ├── manifest.json
+│   └── robots.txt
+└── src
+    ├── ApiCalls
+    │   └── apiCalls.js
+    ├── App.css
+    ├── App.js
+    ├── App.test.js
+    ├── components
+    │   ├── AllBreeds
+    │   │   ├── AllBreeds.css
+    │   │   └── AllBreeds.js
+    │   ├── BreedDetails
+    │   │   ├── BreedDetails.css
+    │   │   └── BreedDetails.js
+    │   ├── Footer
+    │   │   ├── Footer.css
+    │   │   └── Footer.js
+    │   ├── Header
+    │   │   ├── Header.css
+    │   │   └── Header.js
+    │   ├── HomePage
+    │   │   ├── HomePage.css
+    │   │   └── HomePage.js
+    │   ├── MyFavorites
+    │   │   ├── MyFavorites.css
+    │   │   └── MyFavorites.js
+    │   ├── OwnerResources
+    │   │   ├── OwnerResources.css
+    │   │   └── OwnerResources.js
+    │   └── QuizPage
+    │       ├── QuizPage.css
+    │       └── QuizPage.js
+    ├── index.css
+    ├── index.js
+    ├── logo.svg
+    ├── reportWebVitals.js
+    ├── setupTests.js
+    └── utilities
+        └── localStorage.js
+
+14 directories, 36 files
