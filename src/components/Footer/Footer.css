@@ -8,3 +8,35 @@
     width: 100%;
   }
   
+  .social-links {
+    margin-top: 10px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .social-links a {
+    color: white;
+    transition: color 0.3s ease;
+  }
+  
+  .social-links a:hover {
+    color: #b6a1ff;
+  }
+  
+  @media (max-width: 768px) {
+    .footer {
+      padding: 10px;
+    }
+  
+    .social-links {
+      gap: 10px;
+    }
+  
+    .social-links a {
+      font-size: 1.5em;
+    }
+  }
+  
+  
