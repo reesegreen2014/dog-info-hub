@@ -8,10 +8,10 @@ function Footer() {
     <footer className='footer'>
       <p>&copy; 2024 Dog Info Hub</p>
       <div className='social-links'>
-        <a href="https://github.com/reesegreen2014" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/reesegreen2014" target="_blank" alt='github logo' rel="noopener noreferrer">
           <FontAwesomeIcon icon={faGithub} size="2x" />
         </a>
-        <a href="https://www.linkedin.com/in/reese-green" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/in/reese-green" target="_blank" alt='LinkedIn Logo' rel="noopener noreferrer">
           <FontAwesomeIcon icon={faLinkedin} size="2x" />
         </a>
       </div>

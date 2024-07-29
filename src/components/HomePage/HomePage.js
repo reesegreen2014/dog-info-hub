@@ -1,8 +1,6 @@
 import React from 'react';
 import './HomePage.css';
 import { Link } from 'react-router-dom';
-import golden from '../../images/Golden Retriever.jpg'
-import frenchie from '../../images/French Bulldog.jpg'
 
 function HomePage() {
   return (
