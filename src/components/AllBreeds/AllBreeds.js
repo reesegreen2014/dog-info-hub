@@ -92,7 +92,7 @@ function AllBreeds() {
         ? prevState.filter(id => id !== breedId)
         : [...prevState, breedId];
       
-      console.log('Updated Favorites:', updatedFavorites); // Console log the favorites
+      console.log('Updated Favorites:', updatedFavorites); 
       return updatedFavorites;
     });
   };
