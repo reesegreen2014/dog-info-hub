@@ -24,7 +24,7 @@ function BreedDetails() {
       <h1 className='dog-name'>{breedDetails.name}</h1>
       <div className='dog-info'>
         <div className='card'>
-          <h3>Did you know?</h3>
+          <h3>Origin</h3>
           <p>
             {breedDetails.origin 
               ? `The ${breedDetails.name} originates from ${breedDetails.origin}.`
@@ -44,10 +44,10 @@ function BreedDetails() {
         <div className='card'>
           <h3>Breed Group</h3>
           <p>
-            {breedDetails.breed_group 
+            The {breedDetails.name} belongs to the {breedDetails.breed_group 
               ? breedDetails.breed_group 
               : "We're working on getting that information! Check back soon."
-            }
+            } group.
           </p>
         </div>
         <div className='card'>
