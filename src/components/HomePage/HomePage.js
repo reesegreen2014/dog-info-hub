@@ -7,8 +7,8 @@ function HomePage() {
     <div className='home-page'>
       <h1 className='home-page-header'>Dog Info Hub </h1>
       <div className='info-box'>
-        <p><strong>Welcome to Dog Info Hub – the ultimate guide for finding your perfect four-legged friend! 🐶 </strong></p>
-        <p><strong>Whether you're an energetic adventurer or a homebody looking for a couch companion, our app helps you discover the best dog breed for your lifestyle. Take our quick quiz to get matched with breeds that fit your preferences, explore detailed profiles of each breed, and save your favorites for easy reference. Let's make finding your new best friend a fun and easy experience!</strong></p>
+        <p><strong>Welcome to Dog Info Hub – your go-to guide for discovering everything about your future four-legged friend! 🐶 </strong></p>
+        <p><strong>Whether you're an energetic adventurer or a homebody looking for a couch companion, our app helps you find the best dog breed to fit your lifestyle. Search for breeds by name, apply filters to find the perfect match, and explore detailed profiles of each breed. Don't forget to check out our "Owners Resource" page for some fun and informative articles.</strong></p>
         <p><strong>Let's make finding your new best friend a fun and easy experience!</strong></p>
       </div>
       <div className='button-container'>

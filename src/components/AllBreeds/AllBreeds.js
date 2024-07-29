@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { fetchAllBreeds, fetchBreedGroups } from '../../ApiCalls/apiCalls';
 import './AllBreeds.css';
 
@@ -12,6 +14,7 @@ function AllBreeds() {
   const [showFilters, setShowFilters] = useState(false);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
+  const [myFavorites, setMyFavorites] = useState([]);
 
   useEffect(() => {
     setLoading(true);
@@ -81,6 +84,17 @@ function AllBreeds() {
     setSelectedSize('');
     setSearchTerm('');
     setFilteredBreeds(breeds);
+  };
+
+  const toggleFavorite = (breedId) => {
+    setMyFavorites(prevState => {
+      const updatedFavorites = prevState.includes(breedId)
+        ? prevState.filter(id => id !== breedId)
+        : [...prevState, breedId];
+      
+      console.log('Updated Favorites:', updatedFavorites); // Console log the favorites
+      return updatedFavorites;
+    });
   };
 
   return (
@@ -176,14 +190,21 @@ function AllBreeds() {
       ) : (
         <div className='breeds-grid'>
           {filteredBreeds.map((breed) => (
-            <Link to={`/breed/${breed.id}`} key={breed.id} className='breed-card-link'>
-              <div className='breed-card'>
-                {breed.reference_image_id && (
-                  <img src={`https://cdn2.thedogapi.com/images/${breed.reference_image_id}.jpg`} alt={breed.name} />
-                )}
-                <h2>{breed.name}</h2>
-              </div>
-            </Link>
+            <div key={breed.id} className='breed-card-container'>
+              <FontAwesomeIcon
+                icon={faStar}
+                className={`favorite-icon ${myFavorites.includes(breed.id) ? 'favorite' : ''}`}
+                onClick={() => toggleFavorite(breed.id)}
+              />
+              <Link to={`/breed/${breed.id}`} className='breed-card-link'>
+                <div className='breed-card'>
+                  {breed.reference_image_id && (
+                    <img src={`https://cdn2.thedogapi.com/images/${breed.reference_image_id}.jpg`} alt={breed.name} />
+                  )}
+                  <h2>{breed.name}</h2>
+                </div>
+              </Link>
+            </div>
           ))}
         </div>
       )}
