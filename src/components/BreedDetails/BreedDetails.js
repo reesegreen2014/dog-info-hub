@@ -33,7 +33,7 @@ function BreedDetails() {
           </p>
         </div>
         <div className='card'>
-          <h3>The {breedDetails.name} was bred for</h3>
+          <h3>The {breedDetails.name} was originally bred for</h3>
           <p>
             {breedDetails.bred_for 
               ? breedDetails.bred_for 
@@ -63,7 +63,7 @@ function BreedDetails() {
           <h3>Lifespan</h3>
           <p>
             {breedDetails.life_span 
-              ? `The ${breedDetails.name} lives on average between ${breedDetails.life_span} years.` 
+              ? `The ${breedDetails.name} lives on average between ${breedDetails.life_span}.` 
               : "We're working on getting that information! Check back soon."
             }
           </p>
@@ -72,7 +72,7 @@ function BreedDetails() {
           <h3>Unique characteristics</h3>
           <p>
             {breedDetails.temperament 
-              ? `Some of the characteristics that a ${breedDetails.name} is known for are: ${breedDetails.temperament}`
+              ? `Some of the characteristics that the ${breedDetails.name} is known for are: ${breedDetails.temperament}`
               : "We're working on getting that information! Check back soon."
             }
           </p>
