@@ -12,7 +12,6 @@ function HomePage() {
         <p><strong>Let's make finding your new best friend a fun and easy experience!</strong></p>
       </div>
       <div className='button-container'>
-        <Link to='/quiz' className='home-button'>Take The Quiz!</Link>
         <Link to='/all-breeds' className='home-button'>Explore All Breeds</Link>
       </div>
     </div>

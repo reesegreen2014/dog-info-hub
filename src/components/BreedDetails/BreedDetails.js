@@ -1,18 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { fetchBreedDetails } from '../../ApiCalls/apiCalls';
 import './BreedDetails.css';
+import AllBreeds from '../AllBreeds/AllBreeds';
 
 function BreedDetails() {
   const { id } = useParams();
   const [breedDetails, setBreedDetails] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchBreedDetails(id).then(data => {
       console.log('Breed details:', data);
       setBreedDetails(data);
+      setLoading(false);
+    }).catch(error => {
+      console.error('Error fetching breed details:', error);
+      setLoading(false);
     });
   }, [id]);
+
+  if (loading) {
+    return (
+      <div className="spinner-container">
+        <div className="spinner"></div>
+      </div>
+    );
+  }
 
   if (!breedDetails) {
     return <div>Loading...</div>;
@@ -78,6 +92,7 @@ function BreedDetails() {
           </p>
         </div>
       </div>
+      <Link to='/all-breeds' className='button back-to-breeds'>Back To All Breeds</Link>
     </div>
   );
 }

@@ -7,13 +7,15 @@ import MyFavorites from './components/MyFavorites/MyFavorites';
 import OwnerResources from './components/OwnerResources/OwnerResources';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import './App.css'
+import './App.css';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 function App() {
   return (
     <Router>
       <div className='App'>
         <Header />
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/all-breeds" element={<AllBreeds />} />
