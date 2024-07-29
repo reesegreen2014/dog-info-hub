@@ -24,9 +24,10 @@ const Header = () => {
         <Link to="/" className="logo-link">Dog Info Hub <span className='paw-print'>🐾</span></Link>
       </div>
       <nav className={`nav ${menuOpen ? 'open' : ''} ${isAnimating ? 'close' : ''}`}>
-        <Link to="/favorites" className="nav-button">My Favorites</Link>
-        <Link to="/all-breeds" className="nav-button">All Breeds</Link>
-        <Link to="/resources" className="nav-button">Owner Resources</Link>
+        <Link to="/" className="nav-button" onClick={toggleMenu}>Home</Link>
+        <Link to="/all-breeds" className="nav-button" onClick={toggleMenu}>All Breeds</Link> 
+        <Link to="/favorites" className="nav-button" onClick={toggleMenu}>My Favorites</Link>
+        <Link to="/resources" className="nav-button" onClick={toggleMenu}>Owner Resources</Link>
       </nav>
       <div className="menu-icon" onClick={toggleMenu}>
         ☰
