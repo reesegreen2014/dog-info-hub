@@ -9,6 +9,10 @@
     gap: 20px;
     padding: 20px;
   }
+
+  .breed-card-link {
+    text-decoration: none;
+  }
   
   .breed-card {
     background-color: #f0f0f0;
