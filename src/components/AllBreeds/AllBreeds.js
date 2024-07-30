@@ -91,11 +91,12 @@ function AllBreeds() {
     setFilteredBreeds(breeds);
   };
 
-  const toggleFavorite = (breedId) => {
+  const toggleFavorite = (breed) => {
     setMyFavorites(prevState => {
-      const updatedFavorites = prevState.includes(breedId)
-        ? prevState.filter(id => id !== breedId)
-        : [...prevState, breedId];
+      const isFavorite = prevState.some(fav => fav.id === breed.id);
+      const updatedFavorites = isFavorite
+        ? prevState.filter(fav => fav.id !== breed.id)
+        : [...prevState, breed];
       
       console.log('Updated Favorites:', updatedFavorites); 
       return updatedFavorites;
@@ -198,8 +199,8 @@ function AllBreeds() {
             <div key={breed.id} className='breed-card-container'>
               <FontAwesomeIcon
                 icon={faStar}
-                className={`favorite-icon ${myFavorites.includes(breed.id) ? 'favorite' : ''}`}
-                onClick={() => toggleFavorite(breed.id)}
+                className={`favorite-icon ${myFavorites.some(fav => fav.id === breed.id) ? 'favorite' : ''}`}
+                onClick={() => toggleFavorite(breed)}
               />
               <Link to={`/breed/${breed.id}`} className='breed-card-link'>
                 <div className='breed-card'>
