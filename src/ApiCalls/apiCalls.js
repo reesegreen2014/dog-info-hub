@@ -56,3 +56,26 @@ export const fetchBreedDetails = (breedId) => {
     return null;
   });
 };
+
+export const fetchBreedGroups = () => {
+  return fetch(`${apiUrl}/breeds`, {
+    headers: {
+      'x-api-key': apiKey 
+    }
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to fetch breed groups');
+      }
+      return response.json();
+    })
+    .then(breeds => {
+      const breedGroups = breeds.map(breed => breed.breed_group).filter(Boolean);
+      const uniqueBreedGroups = [...new Set(breedGroups)];
+      return uniqueBreedGroups;
+    })
+    .catch(error => {
+      console.error('Error fetching breed groups:', error);
+      return [];
+    });
+};
