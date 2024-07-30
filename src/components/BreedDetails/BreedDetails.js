@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { fetchBreedDetails } from '../../ApiCalls/apiCalls';
 import './BreedDetails.css';
-import AllBreeds from '../AllBreeds/AllBreeds';
 
 function BreedDetails() {
   const { id } = useParams();

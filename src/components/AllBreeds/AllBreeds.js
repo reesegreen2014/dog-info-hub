@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { fetchAllBreeds, fetchBreedGroups } from '../../ApiCalls/apiCalls';
+import { getFavoritesFromLocalStorage, saveFavoritesToLocalStorage } from '../../localStorage/localStorage';
 import './AllBreeds.css';
 
 function AllBreeds() {
@@ -14,7 +15,7 @@ function AllBreeds() {
   const [showFilters, setShowFilters] = useState(false);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
-  const [myFavorites, setMyFavorites] = useState([]);
+  const [myFavorites, setMyFavorites] = useState(getFavoritesFromLocalStorage);
 
   useEffect(() => {
     setLoading(true);
@@ -33,6 +34,10 @@ function AllBreeds() {
         setLoading(false);
       });
   }, []);
+
+  useEffect(() => {
+    saveFavoritesToLocalStorage(myFavorites);
+  }, [myFavorites]);
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
