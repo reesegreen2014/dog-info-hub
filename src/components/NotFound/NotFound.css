@@ -1,0 +1,35 @@
+.not-found-container {
+    text-align: center;
+    padding: 50px;
+  }
+  
+  .not-found-container h1 {
+    font-size: 100px;
+    margin: 0;
+  }
+  
+  .not-found-container p {
+    font-size: 24px;
+    margin: 20px 0;
+  }
+  
+  .not-found-container a {
+    background-color: #556b8e;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 2px;
+    margin-top: 2em;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .not-found-container img {
+    width: 30%;
+    margin-bottom: 1.5em;
+  }
