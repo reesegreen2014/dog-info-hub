@@ -7,6 +7,7 @@ import MyFavorites from './components/MyFavorites/MyFavorites';
 import OwnerResources from './components/OwnerResources/OwnerResources';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import NotFound from './components/NotFound/NotFound';
 import './App.css';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
@@ -22,6 +23,7 @@ function App() {
           <Route path='/breed/:id' element={<BreedDetails />} />
           <Route path='/favorites' element={<MyFavorites />} />
           <Route path='/resources' element={<OwnerResources />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </div>

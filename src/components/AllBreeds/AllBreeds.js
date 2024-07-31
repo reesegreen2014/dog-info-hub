@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import Joyride, { ACTIONS, EVENTS, STATUS } from 'react-joyride';
+import Joyride, { ACTIONS, STATUS } from 'react-joyride';
 import { fetchAllBreeds, fetchBreedGroups } from '../../ApiCalls/apiCalls';
 import { getFavoritesFromLocalStorage, saveFavoritesToLocalStorage } from '../../localStorage/localStorage';
 import './AllBreeds.css';
@@ -18,6 +18,7 @@ function AllBreeds() {
   const [searchTerm, setSearchTerm] = useState('');
   const [myFavorites, setMyFavorites] = useState(getFavoritesFromLocalStorage);
   const [tourActive, setTourActive] = useState(true);
+  const [error, setError] = useState('');
 
   const steps = [
     {
@@ -75,12 +76,13 @@ function AllBreeds() {
         return fetchAllBreeds();
       })
       .then(breedData => {
-        setBreeds(breedData);
-        setFilteredBreeds(breedData);
+        setBreeds(breedData || []);
+        setFilteredBreeds(breedData || []);
         setLoading(false);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
+        setError('Failed to load data. Please try again later.');
         setLoading(false);
       });
   }, []);
@@ -259,24 +261,36 @@ function AllBreeds() {
           <div className="spinner"></div>
         </div>
       ) : (
-        <div className='breeds-grid'>
-          {filteredBreeds.map((breed) => (
-            <div key={breed.id} className='breed-card-container'>
-              <FontAwesomeIcon
-                icon={faStar}
-                className={`favorite-icon ${myFavorites.some(fav => fav.id === breed.id) ? 'favorite' : ''}`}
-                onClick={() => toggleFavorite(breed)}
-              />
-              <Link to={`/breed/${breed.id}`} className='breed-card-link'>
-                <div className='breed-card'>
-                  {breed.reference_image_id && (
-                    <img src={`https://cdn2.thedogapi.com/images/${breed.reference_image_id}.jpg`} alt={breed.name} />
-                  )}
-                  <h2>{breed.name}</h2>
+        <div>
+          {error ? (
+            <div className="error-message">{error}</div>
+          ) : (
+            <>
+              {filteredBreeds.length === 0 ? (
+                <div className="error-message">No breeds found. Please try again later.</div>
+              ) : (
+                <div className='breeds-grid'>
+                  {filteredBreeds.map((breed) => (
+                    <div key={breed.id} className='breed-card-container'>
+                      <FontAwesomeIcon
+                        icon={faStar}
+                        className={`favorite-icon ${myFavorites.some(fav => fav.id === breed.id) ? 'favorite' : ''}`}
+                        onClick={() => toggleFavorite(breed)}
+                      />
+                      <Link to={`/breed/${breed.id}`} className='breed-card-link'>
+                        <div className='breed-card'>
+                          {breed.reference_image_id && (
+                            <img src={`https://cdn2.thedogapi.com/images/${breed.reference_image_id}.jpg`} alt={breed.name} />
+                          )}
+                          <h2>{breed.name}</h2>
+                        </div>
+                      </Link>
+                    </div>
+                  ))}
                 </div>
-              </Link>
-            </div>
-          ))}
+              )}
+            </>
+          )}
         </div>
       )}
     </div>
