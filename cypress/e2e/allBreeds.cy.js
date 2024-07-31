@@ -19,6 +19,27 @@ describe('All Breeds Page', () => {
       cy.get('.breeds-grid').find('.breed-card').should('have.length', 1);
       cy.get('.breed-card h2').contains('Affenpinscher');
     });
+
+    it('should apply correct filters', () => {
+        cy.get('.filter-button').click();
+        cy.get('.breed-groups > :nth-child(4)').click();
+        cy.get('.breed-groups > :nth-child(2)').click();
+        cy.get('.size-options > :nth-child(3) > input').click();
+        cy.get('.apply-filters-button').click();
+        cy.get('.breeds-grid').find('.breed-card').should('have.length', 5)
+    })
+
+    it('should apply correct filters and clear filters', () => {
+        cy.get('.filter-button').click();
+        cy.get('.breed-groups > :nth-child(4)').click();
+        cy.get('.breed-groups > :nth-child(2)').click();
+        cy.get('.size-options > :nth-child(3) > input').click();
+        cy.get('.apply-filters-button').click();
+        cy.get('.filter-button').click();
+        cy.get('.reset-filters-button').click();
+        cy.get('.close-button').click();
+        cy.get('.breeds-grid').find('.breed-card').should('have.length', 10)
+    })
   
     it('should favorite a breed and check persistence', () => {
         cy.wait('@getBreeds');
