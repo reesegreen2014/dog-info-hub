@@ -54,5 +54,12 @@ describe('All Breeds Page', () => {
         cy.get('.breed-card-container').first().find('a').click();
         cy.url().should('include', '/breed/1');
       });
+
+      it('should display error message on failed API call', () => {
+        cy.intercept('GET', '**/breeds', { statusCode: 500 }).as('getBreedsError');
+        cy.visit('http://localhost:3000/all-breeds');
+        cy.wait('@getBreedsError');
+        cy.get('.error-message').should('be.visible').and('contain', 'No breeds found. Please try again later.');
+      });
     });
   
