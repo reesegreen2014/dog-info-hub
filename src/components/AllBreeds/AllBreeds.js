@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import Joyride, { ACTIONS, EVENTS, STATUS } from 'react-joyride';
 import { fetchAllBreeds, fetchBreedGroups } from '../../ApiCalls/apiCalls';
 import { getFavoritesFromLocalStorage, saveFavoritesToLocalStorage } from '../../localStorage/localStorage';
 import './AllBreeds.css';
@@ -16,6 +17,51 @@ function AllBreeds() {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [myFavorites, setMyFavorites] = useState(getFavoritesFromLocalStorage);
+  const [tourActive, setTourActive] = useState(true);
+
+  const steps = [
+    {
+      target: '.search-bar',
+      content: 'Search by Breed name by typing into the search bar',
+    },
+    {
+      target: '.filter-button',
+      content: 'Click "Show Filters" to filter by breed group and size',
+    },
+    {
+      target: '.favorite-icon',
+      content: 'Favorite dogs by clicking the star icon',
+    },
+    {
+      target: '.nav-button.myfavorites',
+      content: 'Visit "My Favorites" to see your favorite dogs',
+    },
+  ];
+
+  const joyrideStyles = {
+    options: {
+      arrowColor: '#fff',
+      backgroundColor: '#556b8e',
+      overlayColor: 'rgba(0, 0, 0, 0.5)',
+      primaryColor: '#556b8e',
+      textColor: '#fff',
+      width: 300,
+      zIndex: 1000,
+    },
+    buttonClose: {
+      color: '#fff',
+    },
+    buttonNext: {
+      backgroundColor: '#556b8e',
+      color: '#fff',
+    },
+    buttonBack: {
+      color: '#fff',
+    },
+    buttonSkip: {
+      color: '#fff',
+    },
+  };
 
   useEffect(() => {
     setLoading(true);
@@ -91,19 +137,35 @@ function AllBreeds() {
     setFilteredBreeds(breeds);
   };
 
-  const toggleFavorite = (breedId) => {
+  const toggleFavorite = (breed) => {
     setMyFavorites(prevState => {
-      const updatedFavorites = prevState.includes(breedId)
-        ? prevState.filter(id => id !== breedId)
-        : [...prevState, breedId];
+      const isFavorite = prevState.some(fav => fav.id === breed.id);
+      const updatedFavorites = isFavorite
+        ? prevState.filter(fav => fav.id !== breed.id)
+        : [...prevState, breed];
       
       console.log('Updated Favorites:', updatedFavorites); 
       return updatedFavorites;
     });
   };
 
+  const handleJoyrideCallback = (data) => {
+    const { status, action } = data;
+    if ([STATUS.FINISHED, STATUS.SKIPPED].includes(status) || action === ACTIONS.CLOSE) {
+      setTourActive(false);
+    }
+  };
+
   return (
     <div className='all-breeds-container'>
+      <Joyride
+        steps={steps}
+        continuous
+        showSkipButton
+        callback={handleJoyrideCallback}
+        run={tourActive}
+        styles={joyrideStyles}
+      />
       <h1>All Breeds</h1>
       <input
         type="text"
@@ -198,8 +260,8 @@ function AllBreeds() {
             <div key={breed.id} className='breed-card-container'>
               <FontAwesomeIcon
                 icon={faStar}
-                className={`favorite-icon ${myFavorites.includes(breed.id) ? 'favorite' : ''}`}
-                onClick={() => toggleFavorite(breed.id)}
+                className={`favorite-icon ${myFavorites.some(fav => fav.id === breed.id) ? 'favorite' : ''}`}
+                onClick={() => toggleFavorite(breed)}
               />
               <Link to={`/breed/${breed.id}`} className='breed-card-link'>
                 <div className='breed-card'>
