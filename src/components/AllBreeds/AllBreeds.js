@@ -36,6 +36,10 @@ function AllBreeds() {
       target: '.nav-button.myfavorites',
       content: 'Visit "My Favorites" to see your favorite dogs',
     },
+    {
+      target: '.nav-button.resources',
+      content: 'Visit "Owner Resources" for resources on owning a pet.'
+    }
   ];
 
   const joyrideStyles = {

@@ -27,7 +27,7 @@ const Header = () => {
         <Link to="/" className="nav-button" onClick={toggleMenu}>Home</Link>
         <Link to="/all-breeds" className="nav-button" onClick={toggleMenu}>All Breeds</Link> 
         <Link to="/favorites" className="nav-button myfavorites" onClick={toggleMenu}>My Favorites</Link>
-        <Link to="/resources" className="nav-button" onClick={toggleMenu}>Owner Resources</Link>
+        <Link to="/resources" className="nav-button resources" onClick={toggleMenu}>Owner Resources</Link>
       </nav>
       <div className="menu-icon" onClick={toggleMenu}>
         ☰
