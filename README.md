@@ -1,70 +1,101 @@
-# Getting Started with Create React App
+# Dog Info Hub
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Dog Info Hub is a React application that allows users to explore various dog breeds. Users can search for breeds, filter them by group and size, and view detailed information about each breed. The app also provides a guided tour using Joyride to help users navigate the features.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Search for dog breeds by name
 
-### `npm start`
+- Filter dog breeds by group and size
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- View detailed information about each breed
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Add breeds to a list of favorites
 
-### `npm test`
+- Responsive design across a variety of devices and screen sizes
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Guided application tour using Joyride
 
-### `npm run build`
+## Technologies Used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- React Router
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- JavaScript
 
-### `npm run eject`
+- Cypress
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- HTML
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- CSS
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Fetch API
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Joyride
 
-## Learn More
+## Installation Instructions
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### To run this project locally, follow these steps:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1\. Clone the repository by running `git clone https://github.com/reesegreen2014/dog-info-hub`
 
-### Code Splitting
+2\. Navigate into the project directory by running `cd dog-info-hub`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3\. Install dependencies by running `npm install`
 
-### Analyzing the Bundle Size
+4\. Start the development server by running `npm start`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+5\. Enjoy exploring dog breeds with Dog Info Hub!
 
-### Making a Progressive Web App
+### To visit the deployed project, follow [this link](https://dog-info-hub.vercel.app/).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Challenges
 
-### Advanced Configuration
+- Integrating Joyride for the guided application tour and ensuring it enhances the user experience.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Implementing the search and filter functionality to allow users to easily find specific breeds.
 
-### Deployment
+- Ensuring responsiveness across all devices and handling various breakpoints throughout the application.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Incorporating Cypress for end-to-end testing to ensure robust application functionality.
 
-### `npm run build` fails to minify
+## Wins
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Seamless API integration for fetching breed data.
+
+- Successfully implemented a guided tour using Joyride to improve user experience.
+
+- Implemented comprehensive error handling.
+
+## Future Enhancements
+
+- Implement user authentication using services like Google Firebase or Auth0.
+- Integrate additional open-source APIs to provide more features and data.
+- Implement a quiz feature to allow users to fill out a quiz and be matched with breeds that fit their lifestyle.
+- Enhance the application's styling to offer an even more user-friendly and visually appealing experience.
+
+## Screenshots
+
+### Home Page
+![Home Page](https://github.com/user-attachments/assets/b9a108e3-b477-4b33-82e8-6af56e2110c1)
+
+### All Breeds 
+![All Breeds Page](https://github.com/user-attachments/assets/f1a884f9-0ba2-4c09-bf6f-c2aa3dc7d8f9)
+
+### Breed Details
+![Breed Details Page](https://github.com/user-attachments/assets/07e15a7c-0407-4006-abab-53d7b51ec9e0)
+
+### Favorites Page
+![Favorites Page](https://github.com/user-attachments/assets/f1692e9e-d07e-4f10-8c5a-61a8fd420b91)
+
+### Responsive Design on Mobile Phone
+![Screen Recording of Application on Mobile Device](https://github.com/user-attachments/assets/01807661-9aa1-451d-a513-9b8ee0b0151b)
+
+## Acknowledgements
+
+- [Turing](turing.edu) for education.
+
+- [React.dev](https://react.dev/) for React documentation.
+
+- [Cypress Docs](https://docs.cypress.io) for Cypress training and documentation.
