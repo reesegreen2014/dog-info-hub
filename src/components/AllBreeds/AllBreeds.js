@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
@@ -108,7 +108,7 @@ function AllBreeds() {
     setSelectedSize(event.target.value);
   };
 
-  const handleFilterChange = () => {
+  const handleFilterChange = useCallback(() => {
     const filtered = breeds.filter(breed => {
       const breedWeight = parseInt(breed.weight.imperial.split('-').pop().trim());
 
@@ -126,11 +126,11 @@ function AllBreeds() {
     });
 
     setFilteredBreeds(filtered);
-  };
+  }, [breeds, selectedSize, selectedGroups, searchTerm]);
 
   useEffect(() => {
     handleFilterChange();
-  }, [selectedGroups, selectedSize, searchTerm]);
+  }, [selectedGroups, selectedSize, searchTerm, handleFilterChange]);
 
   const toggleFilters = () => {
     setShowFilters(!showFilters);
