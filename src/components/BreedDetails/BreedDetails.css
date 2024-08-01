@@ -34,7 +34,7 @@
   }
   
   .card {
-    background: #fff;
+    background: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -47,7 +47,7 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
   
-  .card h3 {
+  .card h2 {
     margin-top: 0;
     font-size: 1.5em;
     color: #555;
@@ -55,7 +55,7 @@
   
   .card p {
     margin: 10px 0 0 0;
-    color: #777;
+    color: #000000;
   }
   
   .back-to-breeds {

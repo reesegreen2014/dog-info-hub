@@ -37,7 +37,7 @@ function BreedDetails() {
       <h1 className='dog-name'>{breedDetails.name}</h1>
       <div className='dog-info'>
         <div className='card'>
-          <h3>Origin</h3>
+          <h2>Origin</h2>
           <p>
             {breedDetails.origin 
               ? `The ${breedDetails.name} originates from ${breedDetails.origin}.`
@@ -46,7 +46,7 @@ function BreedDetails() {
           </p>
         </div>
         <div className='card'>
-          <h3>The {breedDetails.name} was originally bred for</h3>
+          <h2>The {breedDetails.name} was originally bred for</h2>
           <p>
             {breedDetails.bred_for 
               ? breedDetails.bred_for 
@@ -55,7 +55,7 @@ function BreedDetails() {
           </p>
         </div>
         <div className='card'>
-          <h3>Breed Group</h3>
+          <h2>Breed Group</h2>
           <p>
             The {breedDetails.name} belongs to the {breedDetails.breed_group 
               ? breedDetails.breed_group 
@@ -64,7 +64,7 @@ function BreedDetails() {
           </p>
         </div>
         <div className='card'>
-          <h3>Height & Weight</h3>
+          <h2>Height & Weight</h2>
           <p>
             {(breedDetails.height?.imperial || breedDetails.weight?.imperial) 
               ? `${breedDetails.height?.imperial ? `The ${breedDetails.name} has an average height of ${breedDetails.height.imperial} inches` : ''}${breedDetails.height?.imperial && breedDetails.weight?.imperial ? ' and ' : ''}${breedDetails.weight?.imperial ? `generally weighs between ${breedDetails.weight.imperial} lbs.` : ''}`
@@ -73,7 +73,7 @@ function BreedDetails() {
           </p>
         </div>
         <div className='card'>
-          <h3>Lifespan</h3>
+          <h2>Lifespan</h2>
           <p>
             {breedDetails.life_span 
               ? `The ${breedDetails.name} lives on average between ${breedDetails.life_span}.` 
@@ -82,7 +82,7 @@ function BreedDetails() {
           </p>
         </div>
         <div className='card'>
-          <h3>Unique characteristics</h3>
+          <h2>Unique characteristics</h2>
           <p>
             {breedDetails.temperament 
               ? `Some of the characteristics that the ${breedDetails.name} is known for are: ${breedDetails.temperament}`
